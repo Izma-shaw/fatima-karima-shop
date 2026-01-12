@@ -2,7 +2,7 @@
 "use strict";
 
 // 1) Mets ton numéro WhatsApp ici (format international SANS +, ex: 33612345678, 2246xxxxxxx)
-const WHATSAPP_NUMBER = "224623178642";
+const WHATSAPP_NUMBER = "224623178649";
 
 // 2) Produits (modifie/ajoute facilement)
 const PRODUCTS = [

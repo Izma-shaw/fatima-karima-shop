@@ -1,0 +1,85 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tala Shop — Vente</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="wrap header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">TS</div>
+      <div>
+        <h1>Fatima & Karima Shop</h1>
+        <p class="muted">Produits de qualité • Prix clairs • Commande WhatsApp</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a id="wa-global" class="btn btn-whatsapp" href="#" rel="noopener">Commander sur WhatsApp</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="panel-top">
+        <h2>Catalogue</h2>
+        <p class="muted">Choisis un produit et clique sur “Commander”.</p>
+      </div>
+
+      <div class="controls">
+        <label class="control">
+          <span class="label">Recherche</span>
+          <input id="search" type="search" placeholder="Ex: chaussure, parfum, sac..." />
+        </label>
+
+        <label class="control">
+          <span class="label">Catégorie</span>
+          <select id="category"></select>
+        </label>
+
+        <label class="control">
+          <span class="label">Tri</span>
+          <select id="sort">
+            <option value="popular">Populaire</option>
+            <option value="price-asc">Prix: croissant</option>
+            <option value="price-desc">Prix: décroissant</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+      <div id="empty" class="empty hidden">Aucun produit trouvé.</div>
+    </section>
+
+    <section class="panel">
+      <h2>Comment ça marche</h2>
+      <ol class="steps">
+        <li>Tu choisis ton produit.</li>
+        <li>Tu cliques sur <strong>Commander</strong> (WhatsApp).</li>
+        <li>On confirme le stock et on organise <strong>livraison / remise</strong>.</li>
+      </ol>
+
+      <div class="trust">
+        <div class="trust-item">✅ Prix transparents</div>
+        <div class="trust-item">✅ Réponse rapide</div>
+        <div class="trust-item">✅ Produits vérifiés</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Contact</h2>
+      <p class="muted">Questions ? Écris-nous directement sur WhatsApp.</p>
+      <a id="wa-contact" class="btn btn-whatsapp" href="#" rel="noopener">Nous contacter</a>
+    </section>
+
+    <footer class="footer muted">
+      © <span id="year"></span> Fatima & Karima Shop — Tous droits réservés
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

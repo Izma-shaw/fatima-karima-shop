@@ -2,7 +2,7 @@
 "use strict";
 
 // 1) Mets ton numéro WhatsApp ici (format international SANS +, ex: 33612345678, 2246xxxxxxx)
-const WHATSAPP_NUMBER = "33758644287";
+const WHATSAPP_NUMBER = "224623178642";
 
 // 2) Produits (modifie/ajoute facilement)
 const PRODUCTS = [
@@ -13,6 +13,7 @@ const PRODUCTS = [
     category: "Catégorie A",
     tags: ["Neuf", "Top"],
     desc: "Description courte : qualité, pratique, disponible.",
+    image: "images/images1.png",
     popular: 1,
   },
   {
@@ -22,6 +23,7 @@ const PRODUCTS = [
     category: "Catégorie A",
     tags: ["Promo"],
     desc: "Description courte : bon rapport qualité/prix.",
+    image: "images/images2.png",
     popular: 2,
   },
   {
@@ -31,6 +33,7 @@ const PRODUCTS = [
     category: "Catégorie B",
     tags: ["Best"],
     desc: "Description courte : recommandé.",
+    image: "images/images3.png",
     popular: 3,
   },
 ];
@@ -50,7 +53,9 @@ function productCard(p) {
   const message = `Bonjour, je souhaite commander : ${p.name} - ${formatGNF(p.price)}. Est-ce disponible ?`;
   return `
     <article class="card">
-      <div class="thumb"><span>${p.category}</span></div>
+      <div class="thumb">
+      <img src="${p.image}" alt="${p.name}">
+      </div>
       <div class="card-body">
         <div class="row">
           <div class="name">${p.name}</div>

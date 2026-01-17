@@ -9,11 +9,11 @@ const PRODUCTS = [
   {
     id: "p1",
     name: "Produit 1",
-    price: 35000,
+    price: 345000,
     category: "Catégorie A",
     tags: ["Neuf", "Top"],
     desc: "Description courte : qualité, pratique, disponible.",
-    image: "images/images1.png",
+    video: "videos/produit1.mp4",
     popular: 1,
   },
   {
@@ -23,20 +23,11 @@ const PRODUCTS = [
     category: "Catégorie A",
     tags: ["Promo"],
     desc: "Description courte : bon rapport qualité/prix.",
-    image: "images/images2.png",
+    video: "videos/produit2.mp4",
     popular: 2,
-  },
-  {
-    id: "p3",
-    name: "Produit 3",
-    price: 45000,
-    category: "Catégorie B",
-    tags: ["Best"],
-    desc: "Description courte : recommandé.",
-    image: "images/images3.png",
-    popular: 3,
-  },
+  }
 ];
+
 
 function formatGNF(n) {
   // Adaptable si tu veux FCFA/EUR
@@ -54,7 +45,17 @@ function productCard(p) {
   return `
     <article class="card">
       <div class="thumb">
-      <img src="${p.image}" alt="${p.name}">
+        ${p.video ? `
+          <video
+            src="${p.video}"
+            autoplay
+            muted
+            loop
+            playsinline
+          ></video>
+        ` : `
+          <img src="${p.image}" alt="${p.name}">
+        `}
       </div>
       <div class="card-body">
         <div class="row">
@@ -73,6 +74,7 @@ function productCard(p) {
     </article>
   `;
 }
+
 
 function uniqueCategories(items) {
   const cats = new Set(items.map(p => p.category));

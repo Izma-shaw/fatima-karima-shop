@@ -9,11 +9,11 @@ const PRODUCTS = [
   {
     id: "p1",
     name: "Produit 1",
-    price: 345000,
+    price: 35000,
     category: "Catégorie A",
     tags: ["Neuf", "Top"],
     desc: "Description courte : qualité, pratique, disponible.",
-    video: "/videos/produit1.mp4",
+    video: "videos/produit1.mp4",
     popular: 1,
   },
   {
@@ -23,7 +23,7 @@ const PRODUCTS = [
     category: "Catégorie A",
     tags: ["Promo"],
     desc: "Description courte : bon rapport qualité/prix.",
-    video: "/videos/produit1.mp4",
+    video: "videos/produit2.mp4",
     popular: 2,
   }
 ];

@@ -111,10 +111,12 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
 .thumb{
   height:140px;
   background: linear-gradient(135deg, rgba(77,122,255,.18), rgba(16,185,129,.14));
-  display:grid;
-  place-items:center;
   border-bottom:1px solid var(--line);
+
+  position: relative;     /* ✅ */
+  overflow: hidden;       /* ✅ */
 }
+
 
 .card-body{
   padding:12px 12px 14px 12px;
@@ -224,14 +226,20 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
 
 .hidden{display:none}
 
-/* Media fit */
+.thumb{
+  position: relative;
+  overflow: hidden;
+}
 .thumb video,
 .thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
 
 .thumb audio{
   width:100%;
@@ -249,3 +257,26 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
   .grid{grid-template-columns: 1fr}
   .controls{grid-template-columns: 1fr;}
 }
+.media{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sound-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 2;
+  border: 1px solid rgba(15,23,42,.14);
+  background: rgba(255,255,255,.85);
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sound-btn:hover{
+  background: rgba(255,255,255,.95);
+}
+

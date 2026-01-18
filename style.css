@@ -250,7 +250,7 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
 /* 👇 Mobile: vidéo plus grande */
 @media (max-width: 560px){
   .thumb{
-    height: 260px;         /* 👈 taille sur téléphone (augmente à 280/300 si tu veux) */
+    height: 310px;         /* 👈 taille sur téléphone (augmente à 280/300 si tu veux) */
   }
 }
 

@@ -1,10 +1,10 @@
-// app.js
 "use strict";
 
-// 1) Mets ton numéro WhatsApp ici (format international SANS +, ex: 33612345678, 2246xxxxxxx)
+// 1) Mets ton numéro WhatsApp ici (format international SANS +)
 const WHATSAPP_NUMBER = "224623178649";
 
-// 2) Produits (modifie/ajoute facilement)
+// 2) Produits
+// ✅ Chemins relatifs -> marche en file:// et en déploiement (Vercel)
 const PRODUCTS = [
   {
     id: "p1",
@@ -13,7 +13,7 @@ const PRODUCTS = [
     category: "Catégorie A",
     tags: ["Neuf", "Top"],
     desc: "Description courte : qualité, pratique, disponible.",
-    video: "videos/produit1.mp4",
+    video: "videos/Produit1.mp4",
     popular: 1,
   },
   {
@@ -23,21 +23,32 @@ const PRODUCTS = [
     category: "Catégorie A",
     tags: ["Promo"],
     desc: "Description courte : bon rapport qualité/prix.",
-    video: "videos/produit2.mp4",
+    video: "videos/Produit2.mp4",
     popular: 2,
   }
 ];
 
-
 function formatGNF(n) {
-  // Adaptable si tu veux FCFA/EUR
   return new Intl.NumberFormat("fr-FR").format(n);
 }
 
 function waLink(message) {
-  // Encode safe
   const text = encodeURIComponent(message);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+}
+
+function mediaBlock(p) {
+  if (p.video) {
+    // ✅ <source type="video/mp4"> pour compat
+    // ✅ controls temporaire pour debug (tu peux retirer après)
+    return `
+      <video autoplay muted loop playsinline preload="metadata" controls>
+        <source src="${p.video}" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+    `;
+  }
+  return `<img src="${p.image || ""}" alt="${p.name}">`;
 }
 
 function productCard(p) {
@@ -45,17 +56,7 @@ function productCard(p) {
   return `
     <article class="card">
       <div class="thumb">
-        ${p.video ? `
-          <video
-            src="${p.video}"
-            autoplay
-            muted
-            loop
-            playsinline
-          ></video>
-        ` : `
-          <img src="${p.image}" alt="${p.name}">
-        `}
+        ${mediaBlock(p)}
       </div>
       <div class="card-body">
         <div class="row">
@@ -63,9 +64,9 @@ function productCard(p) {
           <div class="price">${formatGNF(p.price)}</div>
         </div>
         <div class="badges">
-          ${p.tags.map(t => `<span class="badge">${t}</span>`).join("")}
+          ${(p.tags || []).map(t => `<span class="badge">${t}</span>`).join("")}
         </div>
-        <p class="desc">${p.desc}</p>
+        <p class="desc">${p.desc || ""}</p>
         <div class="actions">
           <a class="btn btn-whatsapp" href="${waLink(message)}" rel="noopener">Commander</a>
           <button class="btn btn-ghost" data-copy="${message}">Copier msg</button>
@@ -75,9 +76,8 @@ function productCard(p) {
   `;
 }
 
-
 function uniqueCategories(items) {
-  const cats = new Set(items.map(p => p.category));
+  const cats = new Set(items.map(p => p.category).filter(Boolean));
   return ["Toutes", ...Array.from(cats)];
 }
 
@@ -89,15 +89,20 @@ function applyFilters() {
   let items = PRODUCTS.slice();
 
   if (cat !== "Toutes") items = items.filter(p => p.category === cat);
+
   if (q) {
     items = items.filter(p =>
-      (p.name + " " + p.desc + " " + p.tags.join(" ")).toLowerCase().includes(q)
+      (
+        (p.name || "") + " " +
+        (p.desc || "") + " " +
+        ((p.tags || []).join(" "))
+      ).toLowerCase().includes(q)
     );
   }
 
-  if (sort === "price-asc") items.sort((a, b) => a.price - b.price);
-  if (sort === "price-desc") items.sort((a, b) => b.price - a.price);
-  if (sort === "popular") items.sort((a, b) => a.popular - b.popular);
+  if (sort === "price-asc") items.sort((a, b) => (a.price || 0) - (b.price || 0));
+  if (sort === "price-desc") items.sort((a, b) => (b.price || 0) - (a.price || 0));
+  if (sort === "popular") items.sort((a, b) => (a.popular || 999999) - (b.popular || 999999));
 
   render(items);
 }
@@ -106,7 +111,6 @@ function render(items) {
   gridEl.innerHTML = items.map(productCard).join("");
   emptyEl.classList.toggle("hidden", items.length !== 0);
 
-  // Copy buttons
   gridEl.querySelectorAll("button[data-copy]").forEach(btn => {
     btn.addEventListener("click", async () => {
       try {
@@ -129,12 +133,10 @@ const sortEl = document.getElementById("sort");
 
 document.getElementById("year").textContent = String(new Date().getFullYear());
 
-// Global WhatsApp buttons
 const globalMsg = "Bonjour, je souhaite commander. Pouvez-vous m’aider ?";
 document.getElementById("wa-global").href = waLink(globalMsg);
 document.getElementById("wa-contact").href = waLink("Bonjour, j’ai une question sur vos produits.");
 
-// Categories select
 uniqueCategories(PRODUCTS).forEach(c => {
   const opt = document.createElement("option");
   opt.value = c;
@@ -145,10 +147,5 @@ uniqueCategories(PRODUCTS).forEach(c => {
 searchEl.addEventListener("input", applyFilters);
 categoryEl.addEventListener("change", applyFilters);
 sortEl.addEventListener("change", applyFilters);
-
-// Basic guard
-if (WHATSAPP_NUMBER === "TON_NUMERO") {
-  console.warn("⚠️ Mets ton numéro WhatsApp dans app.js (WHATSAPP_NUMBER).");
-}
 
 applyFilters();

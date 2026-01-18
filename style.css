@@ -108,15 +108,30 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
   min-height: 230px;
 }
 
+/* ✅ Video zone */
 .thumb{
-  height:140px;
+  height: 180px; /* PC */
   background: linear-gradient(135deg, rgba(77,122,255,.18), rgba(16,185,129,.14));
   border-bottom:1px solid var(--line);
-
-  position: relative;     /* ✅ */
-  overflow: hidden;       /* ✅ */
+  position: relative;
+  overflow: hidden;
 }
 
+.thumb video,
+.thumb img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb audio{
+  width:100%;
+  height:40px;
+  object-fit:cover;
+}
 
 .card-body{
   padding:12px 12px 14px 12px;
@@ -225,46 +240,8 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
 }
 
 .hidden{display:none}
-.thumb{
-  height: 180px;           /* 👈 taille sur PC */
-  position: relative;
-  overflow: hidden;
-}
 
-.thumb video,
-.thumb img{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.thumb audio{
-  width:100%;
-  height:40px;
-  object-fit:cover;
-}
-
-/* 👇 Mobile: vidéo plus grande */
-@media (max-width: 560px){
-  .thumb{
-    height: 310px;         /* 👈 taille sur téléphone (augmente à 280/300 si tu veux) */
-  }
-}
-
-
-@media (max-width: 900px){
-  .grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
-  .controls{grid-template-columns: 1fr 1fr;}
-}
-
-@media (max-width: 560px){
-  .header{flex-direction:column;align-items:flex-start}
-  .grid{grid-template-columns: 1fr}
-  .controls{grid-template-columns: 1fr;}
-}
+/* ✅ Container bouton son */
 .media{
   position: relative;
   width: 100%;
@@ -288,3 +265,34 @@ input:focus,select:focus{border-color: rgba(77,122,255,.55)}
   background: rgba(255,255,255,.95);
 }
 
+/* Responsive */
+@media (max-width: 900px){
+  .grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+  .controls{grid-template-columns: 1fr 1fr;}
+}
+
+/* ✅ Mobile */
+@media (max-width: 560px){
+  .header{flex-direction:column;align-items:flex-start}
+  .grid{grid-template-columns: 1fr}
+  .controls{grid-template-columns: 1fr;}
+
+  /* Video plus grande sur tel */
+  .thumb{height: 310px;}
+
+  /* ✅ Trust: éviter texte qui se touche */
+  .trust{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .trust-item{
+    padding: 14px 10px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+}
+
+/* Très petit écran: 1 colonne pour les trust items */
+@media (max-width: 380px){
+  .trust{grid-template-columns: 1fr;}
+}

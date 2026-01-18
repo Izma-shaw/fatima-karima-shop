@@ -102,7 +102,6 @@ function uniqueCategories(items) {
 function applyFilters() {
   const q = (searchEl.value || "").trim().toLowerCase();
   const cat = categoryEl.value;
-  const sort = sortEl.value;
 
   let items = PRODUCTS.slice();
 
@@ -117,10 +116,6 @@ function applyFilters() {
       ).toLowerCase().includes(q)
     );
   }
-
-  if (sort === "price-asc") items.sort((a, b) => (a.price || 0) - (b.price || 0));
-  if (sort === "price-desc") items.sort((a, b) => (b.price || 0) - (a.price || 0));
-  if (sort === "popular") items.sort((a, b) => (a.popular || 999999) - (b.popular || 999999));
 
   render(items);
 }
@@ -213,7 +208,6 @@ const gridEl = document.getElementById("grid");
 const emptyEl = document.getElementById("empty");
 const searchEl = document.getElementById("search");
 const categoryEl = document.getElementById("category");
-const sortEl = document.getElementById("sort");
 
 document.getElementById("year").textContent = String(new Date().getFullYear());
 
@@ -232,7 +226,6 @@ uniqueCategories(PRODUCTS).forEach(c => {
 
 searchEl.addEventListener("input", applyFilters);
 categoryEl.addEventListener("change", applyFilters);
-sortEl.addEventListener("change", applyFilters);
 
 // Basic guard
 if (WHATSAPP_NUMBER === "TON_NUMERO") {

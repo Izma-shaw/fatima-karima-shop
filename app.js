@@ -22,7 +22,7 @@ const PRODUCTS = [
     price: 35000,
     category: "Catégorie A",
     tags: ["Neuf"],
-    desc: "Description courte : bon rapport qualité/prix.",
+    desc: "Description courte : qualité, pratique, disponible.",
     video: "videos/Produit2.mp4",
     popular: 2,
   },

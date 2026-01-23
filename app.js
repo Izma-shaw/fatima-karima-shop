@@ -8,22 +8,22 @@ const WHATSAPP_NUMBER = "224623178649";
 const PRODUCTS = [
   {
     id: "p1",
-    name: "Produit 1",
+    name: "Vidéo modèle A",
     price: 35000,
     category: "Catégorie A",
-    tags: ["Neuf", "Top"],
+    tags: ["Neuf"],
     desc: "Description courte : qualité, pratique, disponible.",
     video: "videos/Produit1.mp4",
     popular: 1,
   },
   {
     id: "p2",
-    name: "Produit 2",
-    price: 25000,
+    name: "Vidéo modèle B",
+    price: 35000,
     category: "Catégorie A",
-    tags: ["Promo"],
+    tags: ["Neuf"],
     desc: "Description courte : bon rapport qualité/prix.",
-    video: "videos/Produit1.mp4",
+    video: "videos/Produit2.mp4",
     popular: 2,
   },
 ];

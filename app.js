@@ -7,6 +7,16 @@ const WHATSAPP_NUMBER = "224623178649";
 // IMPORTANT: sur Vercel la casse compte (produit1.mp4 != Produit1.mp4)
 const PRODUCTS = [
   {
+    id: "p3",
+    name: "Vidéo modèle C",
+    price: 35000,
+    category: "Catégorie A",
+    tags: ["Nouvelle arrivage"],
+    desc: "Nouvelle arrivage – modèle récemment disponible.",
+    video: "videos/Produit3.mp4",
+    popular: 0,
+  },
+  {
     id: "p1",
     name: "Vidéo modèle A",
     price: 35000,
@@ -26,17 +36,8 @@ const PRODUCTS = [
     video: "videos/Produit2.mp4",
     popular: 2,
   },
-  {
-    id: "p3",
-    name: "Vidéo modèle C",
-    price: 35000,
-    category: "Catégorie A",
-    tags: ["Nouvelle arrivage"],
-    desc: "Nouvelle arrivage – modèle récemment disponible.",
-    video: "videos/Produit3.mp4",
-    popular: 0,
-  },
 ];
+
 
 
 function formatGNF(n) {

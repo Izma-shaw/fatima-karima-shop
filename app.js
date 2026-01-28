@@ -26,7 +26,18 @@ const PRODUCTS = [
     video: "videos/Produit2.mp4",
     popular: 2,
   },
+  {
+    id: "p3",
+    name: "Vidéo modèle C",
+    price: 35000,
+    category: "Catégorie A",
+    tags: ["Nouvelle arrivage"],
+    desc: "Nouvelle arrivage – modèle récemment disponible.",
+    video: "videos/Produit3.mp4",
+    popular: 0,
+  },
 ];
+
 
 function formatGNF(n) {
   return new Intl.NumberFormat("fr-FR").format(n);

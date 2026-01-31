@@ -11,8 +11,8 @@ const PRODUCTS = [
     name: "Abaya élégante",
     price: 150000,
     category: "Abaya",
-    tags: ["Abaya", "Neuf"],
-    desc: "Abaya élégante, coupe moderne et tissu de qualité.",
+    tags: ["Abaya"],
+    desc: "Nouvelle arrivage – Abaya élégante, coupe moderne et tissu de qualité.",
     video: "videos/Produit5.mp4",
   },
   {

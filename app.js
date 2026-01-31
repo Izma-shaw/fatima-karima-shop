@@ -7,45 +7,43 @@ const WHATSAPP_NUMBER = "224623178649";
 // IMPORTANT: sur Vercel la casse compte (produit1.mp4 != Produit1.mp4)
 const PRODUCTS = [
   {
-    id: "p2",
-    name: "Vidéo modèle A",
-    price: 35000,
-    category: "Catégorie A",
-    tags: ["Nouvelle arrivage"],
-    desc: "Nouvelle arrivage – modèle récemment disponible.",
-    video: "videos/Produit3.mp4",
-    popular: 0,
-  },
-  {
-    id: "p3",
-    name: "Vidéo modèle B",
-    price: 35000,
-    category: "Catégorie A",
-    tags: ["Neuf"],
-    desc: "Description courte : qualité, pratique, disponible.",
-    video: "videos/Produit1.mp4",
-    popular: 1,
-  },
-  {
-    id: "p4",
-    name: "Vidéo modèle C",
-    price: 35000,
-    category: "Catégorie A",
-    tags: ["Neuf"],
-    desc: "Description courte : qualité, pratique, disponible.",
-    video: "videos/Produit2.mp4",
-    popular: 2,
-  },
-  {
     id: "p1",
     name: "Abaya élégante",
-    price: 45000,
+    price: 150000,
     category: "Abaya",
     tags: ["Abaya", "Neuf"],
     desc: "Abaya élégante, coupe moderne et tissu de qualité.",
     video: "videos/Produit5.mp4",
   },
+  {
+    id: "p2",
+    name: "Vidéo modèle A",
+    price: 35000,
+    category: "Souffour",
+    tags: ["Nouvelle arrivage"],
+    desc: "Nouvelle arrivage – modèle récemment disponible.",
+    video: "videos/Produit3.mp4",
+  },
+  {
+    id: "p3",
+    name: "Vidéo modèle B",
+    price: 35000,
+    category: "Souffour",
+    tags: ["Neuf"],
+    desc: "Description courte : qualité, pratique, disponible.",
+    video: "videos/Produit1.mp4",
+  },
+  {
+    id: "p4",
+    name: "Vidéo modèle C",
+    price: 35000,
+    category: "Souffour",
+    tags: ["Neuf"],
+    desc: "Description courte : qualité, pratique, disponible.",
+    video: "videos/Produit2.mp4",
+  },
 ];
+
 
 
 

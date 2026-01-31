@@ -43,7 +43,7 @@ const PRODUCTS = [
     category: "Abaya",
     tags: ["Abaya", "Neuf"],
     desc: "Abaya élégante, coupe moderne et tissu de qualité.",
-    video: "videos/Produit4.mp4",
+    video: "videos/Produit5.mp4",
   },
 ];
 

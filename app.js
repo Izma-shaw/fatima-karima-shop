@@ -33,15 +33,6 @@ const PRODUCTS = [
     desc: "Description courte : qualité, pratique, disponible.",
     video: "videos/Produit1.mp4",
   },
-  {
-    id: "p4",
-    name: "Vidéo modèle C",
-    price: 35000,
-    category: "Souffour",
-    tags: ["Neuf"],
-    desc: "Description courte : qualité, pratique, disponible.",
-    video: "videos/Produit2.mp4",
-  },
 ];
 
 

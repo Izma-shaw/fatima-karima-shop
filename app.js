@@ -7,8 +7,8 @@ const WHATSAPP_NUMBER = "224623178649";
 // IMPORTANT: sur Vercel la casse compte (produit1.mp4 != Produit1.mp4)
 const PRODUCTS = [
   {
-    id: "p3",
-    name: "Vidéo modèle C",
+    id: "p2",
+    name: "Vidéo modèle A",
     price: 35000,
     category: "Catégorie A",
     tags: ["Nouvelle arrivage"],
@@ -17,8 +17,8 @@ const PRODUCTS = [
     popular: 0,
   },
   {
-    id: "p1",
-    name: "Vidéo modèle A",
+    id: "p3",
+    name: "Vidéo modèle B",
     price: 35000,
     category: "Catégorie A",
     tags: ["Neuf"],
@@ -27,14 +27,23 @@ const PRODUCTS = [
     popular: 1,
   },
   {
-    id: "p2",
-    name: "Vidéo modèle B",
+    id: "p4",
+    name: "Vidéo modèle C",
     price: 35000,
     category: "Catégorie A",
     tags: ["Neuf"],
     desc: "Description courte : qualité, pratique, disponible.",
     video: "videos/Produit2.mp4",
     popular: 2,
+  },
+  {
+    id: "p1",
+    name: "Abaya élégante",
+    price: 45000,
+    category: "Abaya",
+    tags: ["Abaya", "Neuf"],
+    desc: "Abaya élégante, coupe moderne et tissu de qualité.",
+    video: "videos/Produit4.mp4",
   },
 ];
 
